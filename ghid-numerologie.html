@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ghid Cifra Conștiinței</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #c9a84c;
+    --gold-light: #e8cc7a;
+    --deep: #0a0612;
+    --purple-dark: #110820;
+    --purple-mid: #1e1035;
+    --text: #e8dfc8;
+    --text-dim: #9a8fa0;
+    --glow: rgba(201,168,76,0.3);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--deep);
+    color: var(--text);
+    font-family: 'Cormorant Garamond', serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+    position: relative;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background:
+      radial-gradient(ellipse at 20% 50%, rgba(60,20,100,0.4) 0%, transparent 60%),
+      radial-gradient(ellipse at 80% 20%, rgba(30,10,70,0.5) 0%, transparent 50%),
+      radial-gradient(ellipse at 50% 100%, rgba(80,30,20,0.2) 0%, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .stars {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .star {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle var(--d, 3s) ease-in-out infinite var(--delay, 0s);
+  }
+
+  @keyframes twinkle {
+    0%, 100% { opacity: var(--min-op, 0.2); transform: scale(1); }
+    50% { opacity: var(--max-op, 0.8); transform: scale(1.3); }
+  }
+
+  .container {
+    position: relative;
+    z-index: 1;
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+  }
+
+  header {
+    text-align: center;
+    margin-bottom: 60px;
+    animation: fadeDown 1s ease both;
+  }
+
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .eye-symbol {
+    font-size: 48px;
+    margin-bottom: 16px;
+    display: block;
+    filter: drop-shadow(0 0 20px var(--gold));
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { filter: drop-shadow(0 0 20px var(--gold)); }
+    50% { filter: drop-shadow(0 0 40px var(--gold-light)); }
+  }
+
+  h1 {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: clamp(1.4rem, 5vw, 2.2rem);
+    color: var(--gold);
+    letter-spacing: 0.05em;
+    line-height: 1.3;
+    text-shadow: 0 0 40px rgba(201,168,76,0.5);
+  }
+
+  .subtitle {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 1.1rem;
+    margin-top: 10px;
+    letter-spacing: 0.1em;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 32px 0;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .divider-icon { color: var(--gold); font-size: 1rem; }
+
+  .intro-card {
+    background: linear-gradient(135deg, rgba(30,16,53,0.9) 0%, rgba(17,8,32,0.95) 100%);
+    border: 1px solid rgba(201,168,76,0.25);
+    border-radius: 4px;
+    padding: 28px 32px;
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease both;
+    text-align: center;
+  }
+
+  .intro-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  }
+
+  .intro-card p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-dim);
+    font-style: italic;
+  }
+
+  .number-card {
+    background: linear-gradient(135deg, rgba(30,16,53,0.9) 0%, rgba(17,8,32,0.95) 100%);
+    border: 1px solid rgba(201,168,76,0.2);
+    border-radius: 4px;
+    padding: 32px;
+    margin-bottom: 28px;
+    position: relative;
+    overflow: hidden;
+    animation: fadeUp 0.8s ease both;
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  .number-card:hover {
+    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 0 30px rgba(201,168,76,0.1);
+  }
+
+  .number-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold-light), transparent);
+  }
+
+  .number-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+
+  .number-big {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 3.5rem;
+    color: var(--gold);
+    text-shadow: 0 0 30px rgba(201,168,76,0.6);
+    line-height: 1;
+    min-width: 60px;
+    text-align: center;
+    animation: pulse 4s ease-in-out infinite;
+  }
+
+  .number-info { flex: 1; }
+
+  .number-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 1rem;
+    color: var(--gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 4px;
+  }
+
+  .number-archetype {
+    font-style: italic;
+    color: var(--text-dim);
+    font-size: 1rem;
+    letter-spacing: 0.05em;
+  }
+
+  .number-symbol {
+    font-size: 2rem;
+    filter: drop-shadow(0 0 10px var(--gold));
+  }
+
+  .number-text {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+
+  .number-shadow {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-dim);
+    font-style: italic;
+    border-left: 2px solid rgba(201,168,76,0.3);
+    padding-left: 16px;
+    margin-bottom: 20px;
+  }
+
+  .traits {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .trait {
+    background: rgba(201,168,76,0.1);
+    border: 1px solid rgba(201,168,76,0.3);
+    color: var(--gold-light);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+  }
+
+  .trait.shadow {
+    background: rgba(150,100,200,0.1);
+    border-color: rgba(150,100,200,0.3);
+    color: #b89ee0;
+  }
+
+  .section-label {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    margin-top: 16px;
+  }
+
+  footer {
+    text-align: center;
+    margin-top: 60px;
+    color: var(--text-dim);
+    font-style: italic;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+</style>
+</head>
+<body>
+
+<div class="stars" id="stars"></div>
+
+<div class="container">
+  <header>
+    <span class="eye-symbol">🔮</span>
+    <h1>Cifra Conștiinței</h1>
+    <p class="subtitle">Ghidul numerelor de la 1 la 9</p>
+  </header>
+
+  <div class="divider"><span class="divider-icon">✦</span></div>
+
+  <div class="intro-card">
+    <p>Cifra Conștiinței îți dezvăluie misiunea sufletului tău în această viață — energia cu care ai venit pe lume și lecțiile pe care ești chemat să le trăiești. Fiecare număr poartă în el atât lumina, cât și umbra sa.</p>
+  </div>
+
+  <!-- 1 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">1</div>
+      <div class="number-info">
+        <div class="number-name">Pionierul</div>
+        <div class="number-archetype">Liderul — Creatorul — Inițiatorul</div>
+      </div>
+      <div class="number-symbol">☀️</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 1 este energia primordială a creației — forța care pornește din neant și dă naștere la tot. Persoanele cu cifra conștiinței 1 au venit pe lume cu o misiune clară: să conducă, să inoveze și să deschidă drumuri noi. Ai o voință de fier, un simț al identității puternic și o energie care inspiră pe cei din jur să acționeze. Ești un pionier — nu urmezi calea bătătorită, ci o creezi pe a ta.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 1 este egoul și izolarea. Când energia nu este echilibrată, poți deveni dominator, inflexibil sau incapabil să primești ajutor de la ceilalți. Lecția ta este să înveți că adevărata forță include și vulnerabilitatea.</div>
+    <div class="traits">
+      <span class="trait">Leadership</span>
+      <span class="trait">Independență</span>
+      <span class="trait">Curaj</span>
+      <span class="trait">Originalitate</span>
+      <span class="trait">Ambiție</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Ego</span>
+      <span class="trait shadow">Inflexibilitate</span>
+      <span class="trait shadow">Izolare</span>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">2</div>
+      <div class="number-info">
+        <div class="number-name">Diplomatul</div>
+        <div class="number-archetype">Mediatorul — Intuitivul — Partenerul</div>
+      </div>
+      <div class="number-symbol">🌙</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 2 este energia lunii — receptivă, intuitivă și profund empatică. Ai venit pe lume cu darul de a simți ceea ce alții nu pot vedea și de a aduce armonie acolo unde există conflict. Ești un mediator natural, un suflet care înțelege că adevărata putere se află în colaborare și echilibru. Relațiile sunt teritoriul tău sacru — iubești profund și ești un partener dedicat.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 2 este nesiguranța și dependența emoțională. Tendința de a te pierde în nevoile celuilalt te poate face să uiți de propriile dorințe. Lecția ta este să înveți că și tu meriți să fii prioritatea cuiva — inclusiv a ta.</div>
+    <div class="traits">
+      <span class="trait">Empatie</span>
+      <span class="trait">Intuiție</span>
+      <span class="trait">Diplomație</span>
+      <span class="trait">Răbdare</span>
+      <span class="trait">Sensibilitate</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Nesiguranță</span>
+      <span class="trait shadow">Dependență</span>
+      <span class="trait shadow">Pasivitate</span>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">3</div>
+      <div class="number-info">
+        <div class="number-name">Creatorul</div>
+        <div class="number-archetype">Artistul — Comunicatorul — Bucuria</div>
+      </div>
+      <div class="number-symbol">✨</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 3 vibrează cu energia creativității pure și a bucuriei de a trăi. Ești un suflet care a venit pe lume să aducă frumusețe, să inspire prin cuvinte, artă sau prezența sa. Ai un talent înnăscut de a comunica, de a face oamenii să zâmbească și de a transforma orice situație banală într-o experiență memorabilă. Energia ta este contagioasă și luminoasă.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 3 este superficialitatea și risipirea energiei. Ai atât de multe talente încât uneori nu le duci pe niciunul până la capăt. Critica te afectează profund, chiar dacă nu arăți asta. Lecția ta este să ai încredere în valoarea creației tale.</div>
+    <div class="traits">
+      <span class="trait">Creativitate</span>
+      <span class="trait">Comunicare</span>
+      <span class="trait">Bucurie</span>
+      <span class="trait">Optimism</span>
+      <span class="trait">Expresivitate</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Superficialitate</span>
+      <span class="trait shadow">Dispersie</span>
+      <span class="trait shadow">Sensibilitate la critică</span>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">4</div>
+      <div class="number-info">
+        <div class="number-name">Constructorul</div>
+        <div class="number-archetype">Stabilul — Muncitorul — Fundamentul</div>
+      </div>
+      <div class="number-symbol">🏛️</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 4 este piatra de temelie a numerologiei — energia care construiește lucruri durabile, temeinice și reale. Ai venit pe lume cu un scop precis: să creezi structuri solide, fie că vorbim de o familie, o carieră sau un sistem de valori. Ești de încredere, disciplinat și ai o rezistență interioară extraordinară. Acolo unde alții renunță, tu continui.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 4 este rigiditatea și teama de schimbare. Poți deveni atât de atașat de rutină și control încât uiți să trăiești cu spontaneitate. Lecția ta este să înveți că și haosul poate fi sacru.</div>
+    <div class="traits">
+      <span class="trait">Disciplină</span>
+      <span class="trait">Stabilitate</span>
+      <span class="trait">Loialitate</span>
+      <span class="trait">Perseverență</span>
+      <span class="trait">Practicism</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Rigiditate</span>
+      <span class="trait shadow">Teama de schimbare</span>
+      <span class="trait shadow">Încăpățânare</span>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">5</div>
+      <div class="number-info">
+        <div class="number-name">Exploratorul</div>
+        <div class="number-archetype">Libertatea — Aventuristul — Schimbarea</div>
+      </div>
+      <div class="number-symbol">🌊</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 5 este energia libertății absolute și a aventurii fără limite. Ai venit pe lume să explorezi, să experimentezi și să trăiești viața la intensitate maximă. Ești adaptabil, versatil și ai o curiozitate insatiabilă față de tot ce există. Schimbarea nu te sperie — te hrănește. Ești un suflet al cărui loc este în mișcare, în descoperire, în transformare perpetuă.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 5 este impulsivitatea și fuga de angajament. Nevoia de libertate poate deveni o formă de evitare a profunzimii. Lecția ta este să descoperi că și rădăcinile pot coexista cu aripile.</div>
+    <div class="traits">
+      <span class="trait">Libertate</span>
+      <span class="trait">Aventură</span>
+      <span class="trait">Adaptabilitate</span>
+      <span class="trait">Curiozitate</span>
+      <span class="trait">Dinamism</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Impulsivitate</span>
+      <span class="trait shadow">Instabilitate</span>
+      <span class="trait shadow">Fuga de angajament</span>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">6</div>
+      <div class="number-info">
+        <div class="number-name">Vindecătorul</div>
+        <div class="number-archetype">Îngrijitorul — Iubirea — Armonia</div>
+      </div>
+      <div class="number-symbol">💚</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 6 vibrează cu cea mai pură formă de iubire — cea necondiționată, cea care vindecă și hrănește. Ai venit pe lume cu un dar extraordinar: acela de a crea armonie, de a îngriji și de a fi un refugiu pentru cei din jur. Casa și familia sunt sfinte pentru tine. Ai un simț estetic rafinat și o dorință profundă de a face lumea mai frumoasă și mai dreaptă.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 6 este sacrificiul de sine și nevoia de control camuflată în grijă. Poți deveni un martir sau poți încerca să controlezi pe cei pe care îi iubești. Lecția ta este să îngrijești fără să te pierzi și să iubești fără să posezi.</div>
+    <div class="traits">
+      <span class="trait">Iubire</span>
+      <span class="trait">Compasiune</span>
+      <span class="trait">Armonie</span>
+      <span class="trait">Responsabilitate</span>
+      <span class="trait">Frumusețe</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Sacrificiu excesiv</span>
+      <span class="trait shadow">Control</span>
+      <span class="trait shadow">Martiraj</span>
+    </div>
+  </div>
+
+  <!-- 7 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">7</div>
+      <div class="number-info">
+        <div class="number-name">Misticul</div>
+        <div class="number-archetype">Înțeleptul — Căutătorul — Solitudinea</div>
+      </div>
+      <div class="number-symbol">🔭</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 7 este cel mai spiritual număr din numerologie — energia celui care caută adevărul dincolo de aparențe. Ai venit pe lume cu o minte analitică extraordinară și o setea de cunoaștere care nu se stinge niciodată. Ești un cercetător al misterelor — fie că le explorezi prin știință, filozofie sau spiritualitate. Solitudinea nu te înspăimântă, ci te reîncarcă. Ești conectat la un nivel profund cu invizibilul.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 7 este izolarea și cinismul. Mintea ta ascuțită poate deveni o armă îndreptată spre tine însuți sau spre ceilalți. Lecția ta este să îți deschizi inima la fel de mult cum îți deschizi mintea.</div>
+    <div class="traits">
+      <span class="trait">Înțelepciune</span>
+      <span class="trait">Spiritualitate</span>
+      <span class="trait">Analiză</span>
+      <span class="trait">Intuiție</span>
+      <span class="trait">Profunzime</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Izolare</span>
+      <span class="trait shadow">Cinism</span>
+      <span class="trait shadow">Detașare</span>
+    </div>
+  </div>
+
+  <!-- 8 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">8</div>
+      <div class="number-info">
+        <div class="number-name">Maestrul Puterii</div>
+        <div class="number-archetype">Autoritatea — Abundența — Karma</div>
+      </div>
+      <div class="number-symbol">⚡</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 8 este energia puterii karmice — numărul care guvernează abundența, autoritatea și echilibrul cosmic dintre dare și primire. Ai venit pe lume cu capacitatea de a manifesta, de a conduce și de a construi imperii — materiale sau spirituale. Ai o înțelegere instinctivă a puterii și a modului în care funcționează lumea. Când ești în aliniament, tot ceea ce atingi se transformă în aur.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 8 este abuzul de putere și obsesia pentru material. Cifra 8 aduce și cele mai grele lecții karmice — pierderile și câștigurile sunt ambele extreme. Lecția ta este să înveți că puterea adevărată vine din integritate, nu din control.</div>
+    <div class="traits">
+      <span class="trait">Putere</span>
+      <span class="trait">Abundență</span>
+      <span class="trait">Autoritate</span>
+      <span class="trait">Determinare</span>
+      <span class="trait">Viziune</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Materialism</span>
+      <span class="trait shadow">Abuz de putere</span>
+      <span class="trait shadow">Karma grea</span>
+    </div>
+  </div>
+
+  <!-- 9 -->
+  <div class="number-card">
+    <div class="number-header">
+      <div class="number-big">9</div>
+      <div class="number-info">
+        <div class="number-name">Înțeleptul Universal</div>
+        <div class="number-archetype">Compasiunea — Finalul — Transcendența</div>
+      </div>
+      <div class="number-symbol">🌌</div>
+    </div>
+    <div class="section-label">Energia luminii</div>
+    <div class="number-text">Cifra 9 este ultimul număr dintr-un ciclu — energia completitudinii, a înțelepciunii dobândite prin toate experiențele. Ai venit pe lume cu sufletul cel mai vechi — ai trăit prin toate energiile de la 1 la 8 și acum ești chemat să dai înapoi. Ești un umanist profund, un vindecător, un artist al sufletului. Compasiunea ta este fără margini și simți durerea lumii ca pe a ta. Misiunea ta este să servești, să inspiri și să ridici.</div>
+    <div class="section-label">Lecția umbrei</div>
+    <div class="number-shadow">Umbra cifrei 9 este dificultatea de a lăsa să plece — persoane, situații, identități vechi. Poți purta povara lumii pe umeri până la epuizare. Lecția ta cea mai profundă este să înveți arta eliberării — să dai drumul cu grație la tot ceea ce și-a trăit menirea.</div>
+    <div class="traits">
+      <span class="trait">Compasiune</span>
+      <span class="trait">Înțelepciune</span>
+      <span class="trait">Altruism</span>
+      <span class="trait">Creativitate</span>
+      <span class="trait">Transcendență</span>
+    </div>
+    <div class="traits">
+      <span class="trait shadow">Dificultatea de a lăsa să plece</span>
+      <span class="trait shadow">Epuizare</span>
+      <span class="trait shadow">Sacrificiu excesiv</span>
+    </div>
+  </div>
+
+  <div class="divider"><span class="divider-icon">✦</span></div>
+
+  <footer>
+    <p>✦ Fiecare număr este o ușă spre sine ✦</p>
+    <p style="margin-top:8px; font-size:0.9rem;">Lumina și umbra împreună formează întregul</p>
+  </footer>
+</div>
+
+<script>
+  // Generate stars
+  const starsContainer = document.getElementById('stars');
+  for (let i = 0; i < 120; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    const size = Math.random() * 2.5 + 0.5;
+    star.style.cssText = `
+      width: ${size}px;
+      height: ${size}px;
+      left: ${Math.random() * 100}%;
+      top: ${Math.random() * 100}%;
+      --d: ${Math.random() * 4 + 2}s;
+      --delay: ${Math.random() * 4}s;
+      --min-op: ${Math.random() * 0.2 + 0.1};
+      --max-op: ${Math.random() * 0.5 + 0.4};
+    `;
+    starsContainer.appendChild(star);
+  }
+</script>
+</body>
+</html>
