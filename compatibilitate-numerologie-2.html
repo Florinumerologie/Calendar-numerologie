@@ -1,0 +1,967 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compatibilitate Numerologică | Flori Numerologie</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Philosopher:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #07070f;
+  --card: #0e0e1c;
+  --card2: #121220;
+  --border: rgba(212,175,255,0.15);
+  --border2: rgba(212,175,255,0.08);
+  --p1: #c084fc;   /* persoana 1 - mov */
+  --p2: #fb923c;   /* persoana 2 - portocaliu */
+  --gold: #fbbf24;
+  --rose: #f43f5e;
+  --teal: #2dd4bf;
+  --text: #ede8ff;
+  --text2: #9d94b8;
+  --text3: #6b6385;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'EB Garamond', serif;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* cosmic background */
+body::before {
+  content:'';
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background:
+    radial-gradient(ellipse 80% 60% at 15% 10%, rgba(192,132,252,0.07) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 80% at 85% 90%, rgba(251,146,60,0.05) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 40% at 50% 50%, rgba(45,212,191,0.03) 0%, transparent 70%);
+}
+.stars {
+  position:fixed; inset:0; pointer-events:none; z-index:0;
+  background-image:
+    radial-gradient(1px 1px at 8% 15%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1px 1px at 22% 72%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 37% 8%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 55% 55%, rgba(255,255,255,0.4) 0%, transparent 100%),
+    radial-gradient(1px 1px at 68% 28%, rgba(255,255,255,0.6) 0%, transparent 100%),
+    radial-gradient(1px 1px at 78% 82%, rgba(255,255,255,0.5) 0%, transparent 100%),
+    radial-gradient(1px 1px at 92% 18%, rgba(255,255,255,0.7) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 45% 90%, rgba(192,132,252,0.6) 0%, transparent 100%),
+    radial-gradient(1.5px 1.5px at 72% 45%, rgba(251,146,60,0.5) 0%, transparent 100%);
+}
+
+.wrap { max-width: 860px; margin: 0 auto; padding: 20px 16px 60px; position: relative; z-index:1; }
+
+/* HEADER */
+header { text-align: center; padding: 40px 0 28px; }
+.orb { font-size: 50px; display: block; margin-bottom: 10px; animation: pulse 4s ease-in-out infinite; }
+@keyframes pulse { 0%,100%{transform:scale(1) rotate(0deg);} 50%{transform:scale(1.08) rotate(5deg);} }
+h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(1.3rem, 4.5vw, 2rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--p1), var(--gold), var(--p2));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  line-height: 1.3; margin-bottom: 8px;
+}
+.subtitle { font-family:'Philosopher',sans-serif; font-size:13px; color:var(--text3); letter-spacing:3px; text-transform:uppercase; }
+
+/* FORM */
+.form-wrap {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  padding: 28px 24px;
+  margin-bottom: 24px;
+  position: relative; overflow: hidden;
+}
+.form-wrap::before {
+  content:''; position:absolute; top:0;left:0;right:0; height:2px;
+  background: linear-gradient(90deg, var(--p1), var(--gold), var(--p2));
+}
+.persons-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+@media(max-width:580px){ .persons-grid { grid-template-columns:1fr; } }
+
+.person-box { position:relative; }
+.person-label {
+  font-family:'Cinzel',serif; font-size:12px; letter-spacing:2px; text-transform:uppercase;
+  margin-bottom:14px; display:flex; align-items:center; gap:8px;
+}
+.person-label .dot { width:10px;height:10px;border-radius:50%;display:inline-block; }
+.dot-1 { background: var(--p1); box-shadow: 0 0 8px var(--p1); }
+.dot-2 { background: var(--p2); box-shadow: 0 0 8px var(--p2); }
+.p1-label { color: var(--p1); }
+.p2-label { color: var(--p2); }
+
+.field { display:flex; flex-direction:column; gap:6px; margin-bottom:12px; }
+.field label { font-family:'Philosopher',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text3); }
+.field input, .field select {
+  background: rgba(255,255,255,0.04); border:1px solid var(--border2);
+  border-radius:10px; padding:11px 14px; color:var(--text);
+  font-family:'EB Garamond',serif; font-size:16px; outline:none; transition:all 0.3s;
+  width:100%; -webkit-appearance:none; appearance:none;
+}
+.field input:focus, .field select:focus { border-color:var(--p1); background:rgba(192,132,252,0.06); box-shadow:0 0 12px rgba(192,132,252,0.15); }
+.field select option { background:#16162a; }
+
+.date-3 { display:grid; grid-template-columns:0.7fr 1.5fr 1.1fr; gap:6px; }
+
+.calc-btn {
+  width:100%; margin-top:20px; padding:16px;
+  background: linear-gradient(135deg, var(--p1), var(--p2));
+  border:none; border-radius:12px; color:white;
+  font-family:'Cinzel',serif; font-size:14px; font-weight:600;
+  letter-spacing:2px; cursor:pointer; transition:all 0.3s; position:relative; overflow:hidden;
+}
+.calc-btn::after { content:''; position:absolute; inset:0; background:linear-gradient(135deg,transparent,rgba(255,255,255,0.12),transparent); transform:translateX(-100%); transition:transform 0.5s; }
+.calc-btn:hover::after { transform:translateX(100%); }
+.calc-btn:hover { box-shadow:0 8px 30px rgba(192,132,252,0.35); transform:translateY(-2px); }
+
+/* DIVIDER */
+.div-line { display:flex; align-items:center; gap:10px; margin:28px 0 20px; }
+.div-line::before,.div-line::after { content:''; flex:1; height:1px; background:linear-gradient(90deg,transparent,var(--border),transparent); }
+.div-line span { font-family:'Cinzel',serif; font-size:11px; letter-spacing:3px; color:var(--text3); text-transform:uppercase; }
+
+/* SECTION TITLE */
+.sec-title {
+  font-family:'Cinzel',serif; font-size:clamp(0.8rem,2.5vw,1rem);
+  letter-spacing:2px; text-align:center; margin:28px 0 16px;
+  background: linear-gradient(135deg, var(--p1), var(--gold));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  position:relative;
+}
+.sec-title::after { content:''; display:block; width:50px; height:2px; background:linear-gradient(90deg,var(--p1),var(--p2)); margin:6px auto 0; border-radius:2px; }
+
+/* SCORE BANNER */
+.score-banner {
+  background: var(--card); border:1px solid var(--border); border-radius:20px;
+  padding:24px; text-align:center; margin-bottom:20px; position:relative; overflow:hidden;
+}
+.score-banner::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse 80% 60% at 50% 0%, rgba(192,132,252,0.08) 0%, transparent 70%); }
+.score-num {
+  font-family:'Cinzel',serif; font-size:4rem; font-weight:700;
+  background:linear-gradient(135deg, var(--p1), var(--gold), var(--p2));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+  line-height:1; margin-bottom:4px;
+}
+.score-label { font-family:'Philosopher',sans-serif; font-size:13px; color:var(--text2); letter-spacing:2px; text-transform:uppercase; margin-bottom:10px; }
+.score-desc { font-size:17px; color:var(--text2); font-style:italic; }
+.score-bar-wrap { background:rgba(255,255,255,0.05); border-radius:99px; height:8px; margin:14px auto; max-width:300px; overflow:hidden; }
+.score-bar { height:100%; border-radius:99px; background:linear-gradient(90deg,var(--p1),var(--gold),var(--p2)); transition:width 1s ease; }
+
+/* MATRIX */
+.matrix-section { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px; }
+@media(max-width:560px){ .matrix-section { grid-template-columns:1fr; } }
+
+.matrix-card {
+  background:var(--card); border:1px solid var(--border); border-radius:16px; padding:18px;
+  position:relative; overflow:hidden;
+}
+.matrix-card .mc-label {
+  font-family:'Philosopher',sans-serif; font-size:11px; letter-spacing:2px;
+  text-transform:uppercase; margin-bottom:12px; display:flex; align-items:center; gap:6px;
+}
+.matrix-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:4px;
+  max-width:180px; margin:0 auto;
+}
+.mc { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.07); border-radius:8px; aspect-ratio:1; display:flex; align-items:center; justify-content:center; position:relative; }
+.mc .pos { position:absolute; top:2px; left:4px; font-size:8px; color:var(--text3); font-family:'Philosopher',sans-serif; }
+.mc .val { font-family:'Cinzel',serif; font-size:13px; color:var(--text); }
+.mc.has-num { background:rgba(192,132,252,0.08); border-color:rgba(192,132,252,0.2); }
+.mc.has-num-2 { background:rgba(251,146,60,0.08); border-color:rgba(251,146,60,0.2); }
+.mc.has-num .val { color:var(--p1); }
+.mc.has-num-2 .val { color:var(--p2); }
+.mc.empty .val { color:var(--text3); font-size:10px; }
+
+/* NUM CARDS */
+.nums-row { display:grid; grid-template-columns:repeat(3,1fr); gap:10px; margin-bottom:16px; }
+@media(max-width:400px){ .nums-row { grid-template-columns:repeat(2,1fr); } }
+
+.ncard {
+  background:var(--card); border:1px solid var(--border2); border-radius:14px;
+  padding:14px 10px; text-align:center; transition:all 0.3s; cursor:pointer;
+}
+.ncard:hover { border-color:var(--p1); transform:translateY(-2px); box-shadow:0 8px 20px rgba(192,132,252,0.15); }
+.ncard .nl { font-family:'Philosopher',sans-serif; font-size:10px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text3); margin-bottom:6px; }
+.ncard .nv { font-family:'Cinzel',serif; font-size:1.8rem; font-weight:700; line-height:1; margin-bottom:3px; }
+.ncard.c1 .nv { color:var(--p1); } .ncard.c2 .nv { color:var(--p2); }
+.ncard .nn { font-size:12px; color:var(--text2); font-style:italic; }
+
+/* INFO CARD */
+.info-card {
+  background:var(--card); border:1px solid var(--border); border-radius:16px;
+  padding:18px 20px; margin-bottom:14px; position:relative; overflow:hidden;
+}
+.info-card::before { content:''; position:absolute; top:0;left:0;right:0; height:2px; }
+.info-card.ic-purple::before { background:linear-gradient(90deg,var(--p1),#e879f9); }
+.info-card.ic-orange::before { background:linear-gradient(90deg,var(--p2),var(--gold)); }
+.info-card.ic-teal::before { background:linear-gradient(90deg,var(--teal),var(--p1)); }
+.info-card.ic-rose::before { background:linear-gradient(90deg,var(--rose),var(--p2)); }
+.info-card.ic-gold::before { background:linear-gradient(90deg,var(--gold),var(--p2)); }
+.info-card.ic-mix::before { background:linear-gradient(90deg,var(--p1),var(--gold),var(--p2)); }
+
+.ic-icon { font-size:26px; margin-bottom:8px; display:block; }
+.ic-title { font-family:'Philosopher',sans-serif; font-size:14px; letter-spacing:1px; color:var(--p1); margin-bottom:10px; font-weight:700; }
+.ic-text { font-size:15px; color:var(--text2); line-height:1.75; }
+.ic-text strong { color:var(--text); font-weight:500; }
+.ic-text .tag-block {
+  display:inline-block; background:rgba(244,63,94,0.12); border:1px solid rgba(244,63,94,0.25);
+  color:#f87171; padding:2px 10px; border-radius:20px; font-size:12px; font-family:'Philosopher',sans-serif; letter-spacing:1px; margin:2px 3px;
+}
+.ic-text .tag-ok {
+  display:inline-block; background:rgba(45,212,191,0.12); border:1px solid rgba(45,212,191,0.25);
+  color:var(--teal); padding:2px 10px; border-radius:20px; font-size:12px; font-family:'Philosopher',sans-serif; letter-spacing:1px; margin:2px 3px;
+}
+.ic-text .tag-warn {
+  display:inline-block; background:rgba(251,191,36,0.12); border:1px solid rgba(251,191,36,0.25);
+  color:var(--gold); padding:2px 10px; border-radius:20px; font-size:12px; font-family:'Philosopher',sans-serif; letter-spacing:1px; margin:2px 3px;
+}
+
+/* VECTORS */
+.vector-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; margin-top:10px; }
+@media(max-width:500px){ .vector-grid { grid-template-columns:1fr; } }
+.vcard {
+  background:rgba(255,255,255,0.03); border:1px solid var(--border2); border-radius:12px; padding:12px 14px;
+}
+.vcard .vname { font-family:'Philosopher',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text3); margin-bottom:4px; }
+.vcard .vval { font-family:'Cinzel',serif; font-size:1.2rem; color:var(--gold); margin-bottom:3px; }
+.vcard .vdesc { font-size:13px; color:var(--text2); line-height:1.5; }
+
+/* PERSONAL YEARS TABLE */
+.py-table { width:100%; border-collapse:collapse; font-size:14px; margin-top:10px; }
+.py-table th { padding:9px 10px; font-family:'Philosopher',sans-serif; font-size:11px; letter-spacing:1.5px; text-transform:uppercase; color:var(--text3); border-bottom:1px solid var(--border2); text-align:center; }
+.py-table td { padding:9px 10px; border-bottom:1px solid rgba(255,255,255,0.04); color:var(--text2); font-size:14px; text-align:center; vertical-align:middle; line-height:1.4; }
+.py-table tr:last-child td { border-bottom:none; }
+.py-table .yr { font-family:'Cinzel',serif; color:var(--gold); font-size:15px; }
+.py-table .pyn { font-family:'Cinzel',serif; font-size:15px; }
+.py-table .pyn.c1 { color:var(--p1); } .py-table .pyn.c2 { color:var(--p2); }
+.py-table .harmony { font-size:20px; }
+.py-table tr.highlight-yr td { background:rgba(192,132,252,0.07); }
+
+/* ADVICE */
+.advice-list { display:flex; flex-direction:column; gap:10px; margin-top:10px; }
+.advice-item {
+  display:flex; align-items:flex-start; gap:12px;
+  background:rgba(255,255,255,0.03); border:1px solid var(--border2); border-radius:12px; padding:12px 14px;
+}
+.advice-item .ai-icon { font-size:20px; flex-shrink:0; margin-top:1px; }
+.advice-item .ai-text { font-size:15px; color:var(--text2); line-height:1.6; }
+.advice-item .ai-text strong { color:var(--text); }
+
+/* PRINT */
+@media print {
+  body { background:#fff; color:#000; }
+  body::before, .stars { display:none; }
+  .form-wrap, .calc-btn { display:none; }
+}
+
+.print-btn {
+  display:block; width:100%; margin-top:24px; padding:14px;
+  background:transparent; border:1px solid var(--border); border-radius:12px;
+  color:var(--text2); font-family:'Philosopher',sans-serif; font-size:14px; letter-spacing:2px;
+  cursor:pointer; transition:all 0.3s; text-transform:uppercase;
+}
+.print-btn:hover { border-color:var(--p1); color:var(--p1); }
+.lang-btn {
+  background:transparent; border:1px solid var(--border); color:var(--text2);
+  padding:6px 14px; border-radius:20px; cursor:pointer;
+  font-family:'Philosopher',sans-serif; font-size:13px; transition:all 0.3s;
+}
+.lang-btn.active, .lang-btn:hover { border-color:var(--p1); color:var(--p1); background:rgba(192,132,252,0.1); }
+</style>
+</head>
+<body>
+<div class="stars"></div>
+<div class="wrap">
+
+<header>
+  <div style="display:flex;justify-content:flex-end;margin-bottom:10px;gap:8px;">
+    <button class="lang-btn active" id="btn-ro" onclick="setLang('ro')">🇷🇴 RO</button>
+    <button class="lang-btn" id="btn-gr" onclick="setLang('gr')">🇬🇷 GR</button>
+  </div>
+  <span class="orb">💞</span>
+  <h1 id="main-title">Compatibilitate Numerologică</h1>
+  <p class="subtitle" id="main-sub">Analiză completă · Matrice · Vectori · Ani personali</p>
+</header>
+
+<div class="form-wrap">
+  <div class="persons-grid">
+    <!-- Persoana 1 -->
+    <div class="person-box">
+      <div class="person-label p1-label"><span class="dot dot-1"></span> <span id="lbl-p1">Persoana 1</span></div>
+      <div class="field"><label id="lbl-name1">Nume Complet</label><input type="text" id="n1" placeholder="ex: Maria Ionescu"></div>
+      <div class="field"><label id="lbl-birth1">Data Nașterii</label>
+        <div class="date-3">
+          <select id="d1"><option value="" id="lbl-day1">Zi</option></select>
+          <select id="m1"><option value="" id="lbl-mon1">Lună</option></select>
+          <select id="y1"><option value="" id="lbl-yr1">An</option></select>
+        </div>
+      </div>
+    </div>
+    <!-- Persoana 2 -->
+    <div class="person-box">
+      <div class="person-label p2-label"><span class="dot dot-2"></span> <span id="lbl-p2">Persoana 2</span></div>
+      <div class="field"><label id="lbl-name2">Nume Complet</label><input type="text" id="n2" placeholder="ex: Ion Popescu"></div>
+      <div class="field"><label id="lbl-birth2">Data Nașterii</label>
+        <div class="date-3">
+          <select id="d2"><option value="" id="lbl-day2">Zi</option></select>
+          <select id="m2"><option value="" id="lbl-mon2">Lună</option></select>
+          <select id="y2"><option value="" id="lbl-yr2">An</option></select>
+        </div>
+      </div>
+    </div>
+  </div>
+  <button class="calc-btn" onclick="calculate()">✦ Calculează Compatibilitatea ✦</button>
+</div>
+
+<div id="results" style="display:none;">
+
+  <!-- SCOR -->
+  <div class="sec-title" id="sec-score">Scorul Relației</div>
+  <div class="score-banner">
+    <div class="score-num" id="score-num">—</div>
+    <div class="score-label" id="score-label">Compatibilitate Generală</div>
+    <div class="score-bar-wrap"><div class="score-bar" id="score-bar" style="width:0%"></div></div>
+    <div class="score-desc" id="score-desc"></div>
+  </div>
+
+  <!-- NUMERE CHEIE -->
+  <div class="sec-title" id="sec-numere">Numerele Cheie ale Fiecărei Persoane</div>
+  <div style="margin-bottom:10px;">
+    <div style="font-family:'Philosopher',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--p1);margin-bottom:6px;padding-left:4px;">▸ <span id="label-p1">Persoana 1</span></div>
+    <div class="nums-row" id="nums-p1"></div>
+  </div>
+  <div>
+    <div style="font-family:'Philosopher',sans-serif;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--p2);margin-bottom:6px;padding-left:4px;">▸ <span id="label-p2">Persoana 2</span></div>
+    <div class="nums-row" id="nums-p2"></div>
+  </div>
+
+  <!-- MATRICELE PITAGORICE -->
+  <div class="sec-title" id="sec-matrix">Matricea Pitagoreică</div>
+  <div class="matrix-section">
+    <div class="matrix-card">
+      <div class="mc-label p1-label"><span class="dot dot-1"></span> <span id="m-label-p1">Persoana 1</span></div>
+      <div class="matrix-grid" id="matrix-p1"></div>
+      <div id="matrix-p1-desc" style="margin-top:12px;font-size:13px;color:var(--text2);line-height:1.6;"></div>
+    </div>
+    <div class="matrix-card">
+      <div class="mc-label p2-label"><span class="dot dot-2"></span> <span id="m-label-p2">Persoana 2</span></div>
+      <div class="matrix-grid" id="matrix-p2"></div>
+      <div id="matrix-p2-desc" style="margin-top:12px;font-size:13px;color:var(--text2);line-height:1.6;"></div>
+    </div>
+  </div>
+
+  <!-- NUMAR RELATIE -->
+  <div class="sec-title" id="sec-rel">Numărul Relației</div>
+  <div class="info-card ic-mix" id="rel-card"></div>
+
+  <!-- VECTORI KARMICI -->
+  <div class="sec-title" id="sec-vec">Vectorii Karmici Comuni</div>
+  <div class="info-card ic-teal" id="vectors-card"></div>
+
+  <!-- BLOCAJE -->
+  <div class="sec-title" id="sec-bloc">Blocaje & Lecții Karmice</div>
+  <div class="info-card ic-rose" id="blocaje-card"></div>
+
+  <!-- ANI PERSONALI -->
+  <div class="sec-title" id="sec-ani">Ani Personali 2024–2031</div>
+  <div class="info-card ic-gold" id="ani-card"></div>
+
+  <!-- SFATURI -->
+  <div class="sec-title" id="sec-sfat">Sfaturi pentru Armonie</div>
+  <div class="info-card ic-purple" id="sfaturi-card"></div>
+
+  <button class="print-btn" onclick="window.print()" id="btn-print">🖨️ Tipărește Analiza</button>
+</div>
+
+</div><!-- /wrap -->
+
+<script>
+// ─── LANGUAGE SYSTEM ──────────────────────────────────────────────
+let LANG = 'ro';
+
+const TRANSLATIONS = {
+  ro: {
+    title: 'Compatibilitate Numerologică',
+    sub: 'Analiză completă · Matrice · Vectori · Ani personali',
+    p1: 'Persoana 1', p2: 'Persoana 2',
+    name: 'Nume Complet', birth: 'Data Nașterii',
+    day: 'Zi', month: 'Lună', year: 'An',
+    calcBtn: '✦ Calculează Compatibilitatea ✦',
+    alertMsg: 'Completează toate câmpurile pentru ambele persoane!',
+    secScore: 'Scorul Relației', scoreLabel: 'Compatibilitate Generală',
+    secNumere: 'Numerele Cheie ale Fiecărei Persoane',
+    secMatrix: 'Matricea Pitagoreică',
+    secRel: 'Numărul Relației', secVec: 'Vectorii Karmici Comuni',
+    secBloc: 'Blocaje & Lecții Karmice',
+    secAni: 'Ani Personali', secSfat: 'Sfaturi pentru Armonie',
+    btnPrint: '🖨️ Tipărește Analiza',
+    numLabels: ['Calea Vieții','Destin','Suflet','Personalitate','Naștere','Misiune'],
+    numNames: {1:'Liderul',2:'Diplomatul',3:'Creatorul',4:'Constructorul',5:'Aventurierul',6:'Îngrijitorul',7:'Misticul',8:'Magnatul',9:'Umanitarul',11:'Vizionarul',22:'Maestrul Constructor',33:'Maestrul Vindecător'},
+    vectorNames: {1:'Inițiativa',2:'Sensibilitatea',3:'Creativitatea',4:'Stabilitatea',5:'Intelectul',6:'Responsabilitatea',7:'Spiritualitatea',8:'Puterea',9:'Umanismul',11:'Intuiția Divină',22:'Constructorul',33:'Vindecătorul'},
+    vectorDesc: {
+      1:'Ambii sunt inițiatori — relația avansează rapid.',
+      2:'Sensibilitate și empatie la nivel ridicat — conexiune emoțională profundă.',
+      3:'Creativitate și comunicare excelentă între voi.',
+      4:'Stabilitate și construcție solidă a relației.',
+      5:'Intelect și curiozitate comună — conversații fascinante.',
+      6:'Responsabilitate și grijă reciprocă — relație matură.',
+      7:'Conexiune spirituală profundă — înțelegere fără cuvinte.',
+      8:'Ambiție și putere comună — pot construi împreună.',
+      9:'Viziune umanitară comună — relație cu scop superior.',
+      11:'Vibrație spirituală înaltă — relație de suflet.',
+      22:'Putere constructivă rară — pot schimba lumea împreună.',
+      33:'Misiune de vindecare — relație profund spirituală.'
+    },
+    blocaje: {
+      '1-1':'Ambii vor să conducă — risc de conflicte de putere. Lecție: alternarea rolurilor.',
+      '1-8':'Putere vs putere — tensiuni de dominanță. Lecție: respectul autorității celuilalt.',
+      '2-8':'Sensibilitate vs duritate — 2 se poate simți copleșit. Lecție: comunicare gentilă.',
+      '4-5':'Structură vs libertate — conflict fundamental de valori. Lecție karmică majoră.',
+      '3-4':'Creativitate vs practicism — frustrări reciproce. Lecție: a accepta diferențele.',
+      '7-8':'Spirit vs materie — viziuni opuse despre viață. Lecție: integrarea ambelor planuri.',
+      '8-9':'Material vs spiritual — lecție karmică despre echilibru.',
+      '5-6':'Libertate vs responsabilitate — tensiuni în angajament. Lecție: libertatea în limitele iubirii.',
+      '2-5':'Stabilitate vs schimbare — anxietate în relație. Lecție: siguranța interioară.',
+      '1-4':'Impuls vs tradiție — ritm diferit. Lecție: răbdarea și planificarea.',
+    },
+    blocajGeneric: {
+      same: (n)=>`Ambii aveți Calea Vieții ${n} — înțelegere profundă, dar risc de ecou (amplifică atât calitățile cât și limitele).`,
+      close: 'Numere apropiate — energie compatibilă natural. Lecție minoră: respectarea ritmului propriu.',
+      far: 'Numere foarte diferite — lecție karmică de toleranță și acceptare a celuilalt.',
+      generic: 'Energie diferită ce se poate complementa frumos. Lecție: comunicarea deschisă.'
+    },
+    pyMeanings: {1:'Nou început, plantare de semințe',2:'Răbdare, relații, cooperare',3:'Expansiune, creativitate, comunicare',4:'Muncă, construcție, fundamente',5:'Schimbări, libertate, transformare',6:'Familie, iubire, responsabilitate',7:'Reflecție, spiritualitate, introspecție',8:'Putere, recoltare, succes material',9:'Încheieri, eliberare, recapitulare'},
+    relMeanings: {
+      1:'Relație de inițiativă și transformare. Voi doi vă împingeți reciproc spre creștere și independență. Este o relație de pionieri — fiecare pune ceva unic în lume prin unirea voastră. Poate fi intensă, dar generează putere personală.',
+      2:'Relație profund emoțională și armonioasă. Bazată pe empatie, răbdare și îngrijire reciprocă. Voi doi vă completați natural — unul simte ce are nevoie celălalt fără cuvinte. Ideal pentru un parteneriat de lungă durată.',
+      3:'Relație creativă și plină de bucurie. Comunicarea este punctul vostru forte — vă exprimați, vă inspirați și vă amuzați împreună. Atenție la superficialitate sau la evitarea conversațiilor profunde.',
+      4:'Relație solidă și construită cu răbdare. Sunteți parteneri de durată, orientați spre familie și securitate. Poate părea lentă la start, dar construiți ceva care rezistă timpului.',
+      5:'Relație dinamică, plină de schimbare și aventură. Vă provocați reciproc la creștere, nu vă plictisiți. Atenție la instabilitate și la angajamentul pe termen lung.',
+      6:'Relație de iubire profundă și responsabilitate. Familia, armonia casei și grija față de cei dragi sunt esența acestei relații. Una dintre cele mai frumoase vibrații pentru o căsnicie.',
+      7:'Relație spirituală și intelectuală. Vă conectați la un nivel profund al sufletului — schimbați perspective, meditați, creșteți spiritual împreună. Nu este o relație ușoară, dar este transformatoare.',
+      8:'Relație de putere și ambiție comună. Construiți împreună din punct de vedere material și profesional. Riscul este că munca poate umbri intimitatea — echilibrul este cheia.',
+      9:'Relație cu o misiune universală. Voi doi aveți ceva de dat lumii împreună — o artă, o cauză, un mesaj. Este o relație cu sens profund, dar care cere eliberarea trecutului.',
+      11:'Relație de suflet — conexiune rară și profundă, aproape karmică. Vă schimbați reciproc la nivel de conștiință. Vibrant, dar și provocator emoțional.',
+      22:'Relație de constructori de visuri. Împreună puteți crea ceva extraordinar pentru lume. Responsabilitate mare, dar și potențial enorm.',
+      33:'Relație de vindecare universală. Voi doi împreună aveți puterea de a vindeca — pe voi înșivă și pe cei din jur. Misiune spirituală comună.'
+    },
+    matrixInterp: {
+      no1:'⚠️ Lipsă <strong>1</strong>: voință slabă, dificultăți în luarea deciziilor',
+      many1:'✨ Mulți <strong>1</strong>: voință extraordinară, lider natural',
+      no2:'⚠️ Lipsă <strong>2</strong>: energie vitală scăzută, sănătate de monitorizat',
+      no5:'⚠️ Lipsă <strong>5</strong>: logică intuitivă, decide mai mult prin simțire',
+      many5:'✨ Mulți <strong>5</strong>: inteligență remarcabilă, rațiune puternică',
+      no7:'⚠️ Lipsă <strong>7</strong>: blocaje spirituale, noroc mai greu de activat',
+      many8:'♾️ <strong>8</strong> prezent: simț puternic al datoriei, karmă activă în relații',
+      no4:'⚠️ Lipsă <strong>4</strong>: relații familiale provocatoare, instabilitate emoțională',
+      ok:'✅ Matrice echilibrată — energie armonioasă'
+    },
+    scoreLabels: ['Conexiune extraordinară — suflete pereche 🌟','Compatibilitate înaltă — relație armonioasă 💞','Compatibilitate bună — cu efort devine frumoasă 🌱','Compatibilitate moderată — lecții importante 🔄','Relație karmică intensă — transformare profundă ⚡'],
+    vecTitle: 'Vectori Karmici Comuni', vecNone: 'Nu aveți vectori identici — relație complementară. Unul aduce ce celuilalt îi lipsește. Acesta este un tip de relație karmică de completare reciprocă.',
+    vecHave: (n,pl)=>`Aveți <strong>${n}</strong> vector${pl?'i':''} karmici comuni:`,
+    vecMissCommon: (nums)=>`⚠️ <strong>Numere lipsă comune din ambele matrice:</strong> ${nums} — acestea sunt lecțiile karmice pe care le aveți de rezolvat împreună în această viață.`,
+    blocTitle: 'Blocaje & Lecții Karmice',
+    soulBlock: (s1,n1,v1,n2,v2)=>`<span class="tag-block">Blocaj sufletesc</span> Dorințele profunde ale sufletelor voastre sunt diferite (${s1}). <strong>${n1}</strong> tânjește după ${v1}, iar <strong>${n2}</strong> după ${v2}. Comunicați explicit despre nevoile voastre interioare.<br><br>`,
+    soulOk: (s)=>`<span class="tag-ok">Suflete compatibile</span> Dorințele sufletelor voastre sunt armonioase (${s}).<br><br>`,
+    soulTwin: (s)=>`<span class="tag-ok">Suflete gemene</span> Aveți același număr al sufletului (${s}) — dorințe identice la nivel profund.<br><br>`,
+    debtP1: (n)=>`<span class="tag-block">Datorie karmică</span> <strong>${n}</strong> are indicii de datorie karmică în Calea Vieții — poate manifesta blocaje în a cere ajutor sau a accepta iubirea. Răbdarea partenerului este esențială.<br><br>`,
+    debtP2: (n)=>`<span class="tag-block">Datorie karmică</span> <strong>${n}</strong> are indicii de datorie karmică — teme similare de deschidere și vulnerabilitate.<br><br>`,
+    noDebt: '<span class="tag-ok">Fără datorii karmice majore</span> Nu există indicii clare de datorie karmică în numerele principale.<br><br>',
+    pyTitle: (y1,y2)=>`Ani Personali ${y1}–${y2}`,
+    pyIntro: 'Cunoașterea anilor personali ai fiecăruia vă ajută să înțelegeți de ce aveți ritmuri diferite și să nu personalizați diferențele de energie.',
+    pyColYear:'An', pyColHarmony:'Armonie', pyColCommon:'Temă comună',
+    pySynced: '<span class="tag-ok">An sincronizat!</span>',
+    pyBest: (yrs)=>`🌟 <strong>Cei mai favorabili ani pentru relație:</strong> ${yrs} — perioade de sincronizare naturală.`,
+    sfatTitle: 'Sfaturi pentru Armonie',
+    advice: {
+      power:{icon:'⚖️',text:'<strong>Echilibrul puterii</strong> este esențial. Decideți cine conduce în ce domeniu și respectați-vă zonele de autonomie.'},
+      comm:{icon:'💬',text:'<strong>Comunicarea emoțională</strong> vă hrănește relația. Rezervați timp săptămânal doar pentru voi, fără distracții.'},
+      depth:{icon:'🌱',text:'<strong>Profunzimea</strong> este antidotul superficialității. Explorați împreună teme filozofice, spirituale sau creative.'},
+      space:{icon:'🔮',text:'<strong>Spațiul interior</strong> al fiecăruia trebuie respectat. Dați-vă libertatea de a fi singuri fără să vă simțiți abandonați.'},
+      release:{icon:'🕊️',text:'<strong>Eliberați trecutul</strong> — această relație nu poate prospera cu poveri vechi. Iertarea este cheia transformării voastre comune.'},
+      diff:{icon:'🧩',text:'<strong>Diferențele voastre sunt complementare</strong>, nu incompatibile. Ce unul nu are, celălalt aduce. Priviți asta ca un dar, nu ca un obstacol.'},
+      mirror:{icon:'🪞',text:'<strong>Oglinda perfectă</strong> — veți vedea în celălalt atât calitățile cât și limitele voastre. Folosiți asta pentru creștere, nu pentru critică.'},
+      rhythm:{icon:'🌙',text:'<strong>Ani personali diferiți</strong> aduc ritmuri diferite. Când unul traversează un an 4 (muncă) și altul un an 5 (schimbare), tensiunile sunt normale — nu personale.'},
+      missing:{icon:'✨',text:'<strong>Numerele lipsă</strong> din matricele voastre sunt lecții comune. Lucrați împreună la ele — sunt oportunitățile voastre de creștere.'},
+      relnum:{icon:'💞',text:'<strong>Numărul relației voastre</strong> este vibrația pe care o creați împreună. Onorați-o trăind valorile pe care le reprezintă.'}
+    },
+    relNumTitle: (n,name)=>`Numărul Relației: ${n} — ${name}`,
+    months: ['Ianuarie','Februarie','Martie','Aprilie','Mai','Iunie','Iulie','August','Septembrie','Octombrie','Noiembrie','Decembrie']
+  },
+  gr: {
+    title: 'Αριθμολογική Συμβατότητα',
+    sub: 'Πλήρης ανάλυση · Μήτρα · Διανύσματα · Προσωπικά έτη',
+    p1: 'Άτομο 1', p2: 'Άτομο 2',
+    name: 'Πλήρες Όνομα', birth: 'Ημερομηνία Γέννησης',
+    day: 'Ημέρα', month: 'Μήνας', year: 'Έτος',
+    calcBtn: '✦ Υπολόγισε τη Συμβατότητα ✦',
+    alertMsg: 'Συμπλήρωσε όλα τα πεδία και για τα δύο άτομα!',
+    secScore: 'Βαθμολογία Σχέσης', scoreLabel: 'Γενική Συμβατότητα',
+    secNumere: 'Κλειδιά Αριθμοί κάθε Ατόμου',
+    secMatrix: 'Πυθαγόρεια Μήτρα',
+    secRel: 'Αριθμός Σχέσης', secVec: 'Κοινά Καρμικά Διανύσματα',
+    secBloc: 'Εμπόδια & Καρμικά Μαθήματα',
+    secAni: 'Προσωπικά Έτη', secSfat: 'Συμβουλές για Αρμονία',
+    btnPrint: '🖨️ Εκτύπωση Ανάλυσης',
+    numLabels: ['Μονοπάτι Ζωής','Μοίρα','Ψυχή','Προσωπικότητα','Γέννησης','Αποστολή'],
+    numNames: {1:'Ο Ηγέτης',2:'Ο Διπλωμάτης',3:'Ο Δημιουργός',4:'Ο Κτίστης',5:'Ο Εξερευνητής',6:'Ο Φροντιστής',7:'Ο Μύστης',8:'Ο Δυνάστης',9:'Ο Ανθρωπιστής',11:'Ο Οραματιστής',22:'Ο Μεγάλος Κτίστης',33:'Ο Μεγάλος Θεραπευτής'},
+    vectorNames: {1:'Πρωτοβουλία',2:'Ευαισθησία',3:'Δημιουργικότητα',4:'Σταθερότητα',5:'Διανόηση',6:'Υπευθυνότητα',7:'Πνευματικότητα',8:'Δύναμη',9:'Ανθρωπισμός',11:'Θεία Διαίσθηση',22:'Ο Κατασκευαστής',33:'Ο Θεραπευτής'},
+    vectorDesc: {
+      1:'Και οι δύο είναι πρωτοπόροι — η σχέση προχωρά γρήγορα.',
+      2:'Υψηλή ευαισθησία και ενσυναίσθηση — βαθιά συναισθηματική σύνδεση.',
+      3:'Εξαιρετική δημιουργικότητα και επικοινωνία μεταξύ σας.',
+      4:'Σταθερότητα και στέρεη οικοδόμηση της σχέσης.',
+      5:'Κοινή διανόηση και περιέργεια — συναρπαστικές συζητήσεις.',
+      6:'Αμοιβαία υπευθυνότητα και φροντίδα — ώριμη σχέση.',
+      7:'Βαθιά πνευματική σύνδεση — κατανόηση χωρίς λόγια.',
+      8:'Κοινή φιλοδοξία και δύναμη — μπορούν να χτίσουν μαζί.',
+      9:'Κοινό ανθρωπιστικό όραμα — σχέση με ανώτερο σκοπό.',
+      11:'Υψηλή πνευματική δόνηση — σχέση ψυχής.',
+      22:'Σπάνια δημιουργική δύναμη — μπορούν να αλλάξουν τον κόσμο μαζί.',
+      33:'Αποστολή θεραπείας — βαθιά πνευματική σχέση.'
+    },
+    blocaje: {
+      '1-1':'Και οι δύο θέλουν να ηγούνται — κίνδυνος συγκρούσεων εξουσίας. Μάθημα: εναλλαγή ρόλων.',
+      '1-8':'Δύναμη εναντίον δύναμης — τάσεις κυριαρχίας. Μάθημα: σεβασμός της εξουσίας του άλλου.',
+      '2-8':'Ευαισθησία εναντίον σκληρότητας — το 2 μπορεί να αισθάνεται πλημμυρισμένο. Μάθημα: ήπια επικοινωνία.',
+      '4-5':'Δομή εναντίον ελευθερίας — θεμελιώδης σύγκρουση αξιών. Μεγάλο καρμικό μάθημα.',
+      '3-4':'Δημιουργικότητα εναντίον πρακτικισμού — αμοιβαίες απογοητεύσεις. Μάθημα: αποδοχή διαφορών.',
+      '7-8':'Πνεύμα εναντίον ύλης — αντίθετες απόψεις για τη ζωή. Μάθημα: ενσωμάτωση και των δύο επιπέδων.',
+      '8-9':'Υλικό εναντίον πνευματικού — καρμικό μάθημα ισορροπίας.',
+      '5-6':'Ελευθερία εναντίον υπευθυνότητας — εντάσεις στη δέσμευση. Μάθημα: ελευθερία εντός των ορίων της αγάπης.',
+      '2-5':'Σταθερότητα εναντίον αλλαγής — άγχος στη σχέση. Μάθημα: εσωτερική ασφάλεια.',
+      '1-4':'Παρόρμηση εναντίον παράδοσης — διαφορετικός ρυθμός. Μάθημα: υπομονή και σχεδιασμός.',
+    },
+    blocajGeneric: {
+      same: (n)=>`Και οι δύο έχετε Μονοπάτι Ζωής ${n} — βαθιά κατανόηση, αλλά κίνδυνος ηχούς (ενισχύει τόσο τα προτερήματα όσο και τα όρια).`,
+      close: 'Κοντινοί αριθμοί — φυσικά συμβατή ενέργεια. Μικρό μάθημα: σεβασμός του δικού σας ρυθμού.',
+      far: 'Πολύ διαφορετικοί αριθμοί — καρμικό μάθημα ανεκτικότητας και αποδοχής του άλλου.',
+      generic: 'Διαφορετική ενέργεια που μπορεί να συμπληρωθεί όμορφα. Μάθημα: ανοιχτή επικοινωνία.'
+    },
+    pyMeanings: {1:'Νέα αρχή, σπορά σπόρων',2:'Υπομονή, σχέσεις, συνεργασία',3:'Επέκταση, δημιουργικότητα, επικοινωνία',4:'Εργασία, οικοδόμηση, θεμέλια',5:'Αλλαγές, ελευθερία, μεταμόρφωση',6:'Οικογένεια, αγάπη, υπευθυνότητα',7:'Αναστοχασμός, πνευματικότητα, ενδοσκόπηση',8:'Δύναμη, συγκομιδή, υλική επιτυχία',9:'Ολοκληρώσεις, απελευθέρωση, ανακεφαλαίωση'},
+    relMeanings: {
+      1:'Σχέση πρωτοβουλίας και μεταμόρφωσης. Σπρώχνετε ο ένας τον άλλον προς ανάπτυξη και ανεξαρτησία. Είναι μια σχέση πρωτοπόρων — ο καθένας φέρνει κάτι μοναδικό στον κόσμο μέσα από την ένωσή σας.',
+      2:'Βαθιά συναισθηματική και αρμονική σχέση. Βασισμένη στην ενσυναίσθηση, την υπομονή και την αμοιβαία φροντίδα. Συμπληρώνεστε φυσικά — ο ένας νιώθει τι χρειάζεται ο άλλος χωρίς λόγια.',
+      3:'Δημιουργική και χαρούμενη σχέση. Η επικοινωνία είναι το δυνατό σας σημείο — εκφράζεστε, εμπνέετε και διασκεδάζετε μαζί.',
+      4:'Στέρεη σχέση χτισμένη με υπομονή. Είστε σύντροφοι διάρκειας, προσανατολισμένοι στην οικογένεια και την ασφάλεια.',
+      5:'Δυναμική σχέση, γεμάτη αλλαγή και περιπέτεια. Προκαλείτε ο ένας τον άλλον προς ανάπτυξη, δεν βαριέστε.',
+      6:'Σχέση βαθιάς αγάπης και υπευθυνότητας. Οικογένεια, αρμονία σπιτιού και φροντίδα για τους αγαπημένους είναι η ουσία αυτής της σχέσης.',
+      7:'Πνευματική και διανοητική σχέση. Συνδέεστε σε βαθύ επίπεδο ψυχής — αλλάζετε προοπτικές, διαλογίζεστε, αναπτύσσεστε πνευματικά μαζί.',
+      8:'Σχέση δύναμης και κοινής φιλοδοξίας. Χτίζετε μαζί από υλική και επαγγελματική άποψη.',
+      9:'Σχέση με οικουμενική αποστολή. Έχετε κάτι να δώσετε στον κόσμο μαζί — μια τέχνη, μια υπόθεση, ένα μήνυμα.',
+      11:'Σχέση ψυχής — σπάνια και βαθιά σύνδεση, σχεδόν καρμική. Αλλάζετε ο ένας τον άλλον σε επίπεδο συνείδησης.',
+      22:'Σχέση κατασκευαστών ονείρων. Μαζί μπορείτε να δημιουργήσετε κάτι εξαιρετικό για τον κόσμο.',
+      33:'Σχέση οικουμενικής θεραπείας. Μαζί έχετε τη δύναμη να θεραπεύσετε — τον εαυτό σας και τους γύρω σας.'
+    },
+    matrixInterp: {
+      no1:'⚠️ Απόν <strong>1</strong>: αδύναμη θέληση, δυσκολίες στη λήψη αποφάσεων',
+      many1:'✨ Πολλά <strong>1</strong>: εξαιρετική θέληση, φυσικός ηγέτης',
+      no2:'⚠️ Απόν <strong>2</strong>: χαμηλή ζωτική ενέργεια, υγεία για παρακολούθηση',
+      no5:'⚠️ Απόν <strong>5</strong>: διαισθητική λογική, αποφασίζει περισσότερο μέσω αισθήσεων',
+      many5:'✨ Πολλά <strong>5</strong>: αξιοσημείωτη νοημοσύνη, ισχυρή λογική',
+      no7:'⚠️ Απόν <strong>7</strong>: πνευματικά εμπόδια, η τύχη ενεργοποιείται δυσκολότερα',
+      many8:'♾️ <strong>8</strong> παρόν: ισχυρή αίσθηση καθήκοντος, ενεργό καρμικό στις σχέσεις',
+      no4:'⚠️ Απόν <strong>4</strong>: προκλητικές οικογενειακές σχέσεις, συναισθηματική αστάθεια',
+      ok:'✅ Ισορροπημένη μήτρα — αρμονική ενέργεια'
+    },
+    scoreLabels: ['Εξαιρετική σύνδεση — ψυχές συντρόφων 🌟','Υψηλή συμβατότητα — αρμονική σχέση 💞','Καλή συμβατότητα — γίνεται όμορφη με προσπάθεια 🌱','Μέτρια συμβατότητα — σημαντικά μαθήματα 🔄','Έντονη καρμική σχέση — βαθιά μεταμόρφωση ⚡'],
+    vecTitle: 'Κοινά Καρμικά Διανύσματα', vecNone: 'Δεν έχετε ίδια διανύσματα — συμπληρωματική σχέση. Ο ένας φέρνει αυτό που λείπει στον άλλον. Αυτός είναι ένας τύπος καρμικής σχέσης αμοιβαίας συμπλήρωσης.',
+    vecHave: (n,pl)=>`Έχετε <strong>${n}</strong> κοιν${pl?'ά':'ό'} καρμικ${pl?'ά':'ό'} διανύσματα:`,
+    vecMissCommon: (nums)=>`⚠️ <strong>Κοινοί απόντες αριθμοί και στις δύο μήτρες:</strong> ${nums} — αυτά είναι τα καρμικά μαθήματα που πρέπει να λύσετε μαζί σε αυτή τη ζωή.`,
+    blocTitle: 'Εμπόδια & Καρμικά Μαθήματα',
+    soulBlock: (s1,n1,v1,n2,v2)=>`<span class="tag-block">Εμπόδιο ψυχής</span> Οι βαθιές επιθυμίες των ψυχών σας είναι διαφορετικές (${s1}). <strong>${n1}</strong> λαχταρά ${v1}, ενώ <strong>${n2}</strong> λαχταρά ${v2}. Επικοινωνήστε ανοιχτά για τις εσωτερικές σας ανάγκες.<br><br>`,
+    soulOk: (s)=>`<span class="tag-ok">Συμβατές ψυχές</span> Οι επιθυμίες των ψυχών σας είναι αρμονικές (${s}).<br><br>`,
+    soulTwin: (s)=>`<span class="tag-ok">Δίδυμες ψυχές</span> Έχετε τον ίδιο αριθμό ψυχής (${s}) — ταυτόσημες επιθυμίες σε βαθύ επίπεδο.<br><br>`,
+    debtP1: (n)=>`<span class="tag-block">Καρμικό χρέος</span> <strong>${n}</strong> έχει ενδείξεις καρμικού χρέους στο Μονοπάτι Ζωής — μπορεί να εκδηλώνει εμπόδια στο να ζητά βοήθεια ή να αποδέχεται αγάπη. Η υπομονή του συντρόφου είναι απαραίτητη.<br><br>`,
+    debtP2: (n)=>`<span class="tag-block">Καρμικό χρέος</span> <strong>${n}</strong> έχει ενδείξεις καρμικού χρέους — παρόμοια θέματα ανοιχτοσύνης και ευαλωτότητας.<br><br>`,
+    noDebt: '<span class="tag-ok">Χωρίς σημαντικά καρμικά χρέη</span> Δεν υπάρχουν σαφείς ενδείξεις καρμικού χρέους στους κύριους αριθμούς.<br><br>',
+    pyTitle: (y1,y2)=>`Προσωπικά Έτη ${y1}–${y2}`,
+    pyIntro: 'Η γνώση των προσωπικών ετών του καθενός σας βοηθά να καταλάβετε γιατί έχετε διαφορετικούς ρυθμούς και να μην εκλαμβάνετε τις διαφορές ενέργειας ως προσωπικές.',
+    pyColYear:'Έτος', pyColHarmony:'Αρμονία', pyColCommon:'Κοινό θέμα',
+    pySynced: '<span class="tag-ok">Συγχρονισμένο έτος!</span>',
+    pyBest: (yrs)=>`🌟 <strong>Τα πιο ευνοϊκά χρόνια για τη σχέση:</strong> ${yrs} — περίοδοι φυσικού συγχρονισμού.`,
+    sfatTitle: 'Συμβουλές για Αρμονία',
+    advice: {
+      power:{icon:'⚖️',text:'<strong>Η ισορροπία εξουσίας</strong> είναι απαραίτητη. Αποφασίστε ποιος ηγείται σε ποιον τομέα και σεβαστείτε τις ζώνες αυτονομίας σας.'},
+      comm:{icon:'💬',text:'<strong>Η συναισθηματική επικοινωνία</strong> τρέφει τη σχέση σας. Κρατήστε εβδομαδιαίο χρόνο μόνο για εσάς, χωρίς περισπασμούς.'},
+      depth:{icon:'🌱',text:'<strong>Το βάθος</strong> είναι αντίδοτο στην επιπολαιότητα. Εξερευνήστε μαζί φιλοσοφικά, πνευματικά ή δημιουργικά θέματα.'},
+      space:{icon:'🔮',text:'<strong>Ο εσωτερικός χώρος</strong> του καθενός πρέπει να γίνεται σεβαστός. Δώστε ο ένας στον άλλον ελευθερία να είστε μόνοι χωρίς να νιώθετε εγκαταλελειμμένοι.'},
+      release:{icon:'🕊️',text:'<strong>Αφήστε το παρελθόν</strong> — αυτή η σχέση δεν μπορεί να ευδοκιμήσει με παλιά βάρη. Η συγχώρεση είναι το κλειδί της κοινής σας μεταμόρφωσης.'},
+      diff:{icon:'🧩',text:'<strong>Οι διαφορές σας είναι συμπληρωματικές</strong>, όχι ασύμβατες. Αυτό που ο ένας δεν έχει, το φέρνει ο άλλος. Δείτε το ως δώρο, όχι ως εμπόδιο.'},
+      mirror:{icon:'🪞',text:'<strong>Τέλειος καθρέφτης</strong> — θα δείτε στον άλλον τόσο τα προτερήματα όσο και τα όρια σας. Χρησιμοποιήστε το για ανάπτυξη, όχι για κριτική.'},
+      rhythm:{icon:'🌙',text:'<strong>Διαφορετικά προσωπικά έτη</strong> φέρνουν διαφορετικούς ρυθμούς. Όταν ο ένας διανύει ένα έτος 4 (εργασία) και ο άλλος ένα έτος 5 (αλλαγή), οι εντάσεις είναι φυσιολογικές.'},
+      missing:{icon:'✨',text:'<strong>Οι απόντες αριθμοί</strong> από τις μήτρες σας είναι κοινά μαθήματα. Δουλέψτε τα μαζί — είναι οι ευκαιρίες ανάπτυξής σας.'},
+      relnum:{icon:'💞',text:'<strong>Ο αριθμός της σχέσης σας</strong> είναι η δόνηση που δημιουργείτε μαζί. Τιμήστε την ζώντας τις αξίες που εκπροσωπεί.'}
+    },
+    relNumTitle: (n,name)=>`Αριθμός Σχέσης: ${n} — ${name}`,
+    months: ['Ιανουάριος','Φεβρουάριος','Μάρτιος','Απρίλιος','Μάιος','Ιούνιος','Ιούλιος','Αύγουστος','Σεπτέμβριος','Οκτώβριος','Νοέμβριος','Δεκέμβριος']
+  }
+};
+
+function setLang(lang) {
+  LANG = lang;
+  document.getElementById('btn-ro').classList.toggle('active', lang==='ro');
+  document.getElementById('btn-gr').classList.toggle('active', lang==='gr');
+  const T = TRANSLATIONS[lang];
+  document.getElementById('main-title').textContent = T.title;
+  document.getElementById('main-sub').textContent = T.sub;
+  document.getElementById('lbl-p1').textContent = T.p1;
+  document.getElementById('lbl-p2').textContent = T.p2;
+  document.getElementById('lbl-name1').textContent = T.name;
+  document.getElementById('lbl-name2').textContent = T.name;
+  document.getElementById('lbl-birth1').textContent = T.birth;
+  document.getElementById('lbl-birth2').textContent = T.birth;
+  document.querySelector('.calc-btn').textContent = T.calcBtn;
+  document.getElementById('sec-score').textContent = T.secScore;
+  document.getElementById('score-label').textContent = T.scoreLabel;
+  document.getElementById('sec-numere').textContent = T.secNumere;
+  document.getElementById('sec-matrix').textContent = T.secMatrix;
+  document.getElementById('sec-rel').textContent = T.secRel;
+  document.getElementById('sec-vec').textContent = T.secVec;
+  document.getElementById('sec-bloc').textContent = T.secBloc;
+  document.getElementById('sec-sfat').textContent = T.secSfat;
+  document.getElementById('btn-print').textContent = T.btnPrint;
+  // Re-render if results are visible
+  const res = document.getElementById('results');
+  if(res.style.display !== 'none') {
+    const n1=document.getElementById('n1').value.trim();
+    const n2=document.getElementById('n2').value.trim();
+    const d1v=document.getElementById('d1').value, m1v=document.getElementById('m1').value, y1v=document.getElementById('y1').value;
+    const d2v=document.getElementById('d2').value, m2v=document.getElementById('m2').value, y2v=document.getElementById('y2').value;
+    if(n1&&n2&&d1v&&m1v&&y1v&&d2v&&m2v&&y2v) renderResults(n1,n2,d1v,m1v,y1v,d2v,m2v,y2v);
+  }
+}
+
+// ─── POPULATE DROPDOWNS ───────────────────────────────────────────
+const MONTHS_RO = TRANSLATIONS.ro.months;
+
+function fillDropdowns(ds, ms, ys) {
+  for(let i=1;i<=31;i++){const o=document.createElement('option');o.value=i;o.textContent=i;ds.appendChild(o);}
+  MONTHS_RO.forEach((n,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=n;ms.appendChild(o);});
+  for(let y=2015;y>=1920;y--){const o=document.createElement('option');o.value=y;o.textContent=y;ys.appendChild(o);}
+}
+fillDropdowns(document.getElementById('d1'),document.getElementById('m1'),document.getElementById('y1'));
+fillDropdowns(document.getElementById('d2'),document.getElementById('m2'),document.getElementById('y2'));
+
+// ─── NUMEROLOGY CORE ──────────────────────────────────────────────
+function reduce(n, master=true) {
+  if(master && (n===11||n===22||n===33)) return n;
+  while(n>9){ n=String(n).split('').reduce((a,b)=>a+parseInt(b),0); if(master&&(n===11||n===22||n===33)) return n; }
+  return n;
+}
+
+function letterVal(c){
+  const m={a:1,b:2,c:3,d:4,e:5,f:6,g:7,h:8,i:9,j:1,k:2,l:3,m:4,n:5,o:6,p:7,q:8,r:9,s:1,t:2,u:3,v:4,w:5,x:6,y:7,z:8,ă:1,â:1,î:9,ș:1,ț:2};
+  return m[c.toLowerCase()]||0;
+}
+const VOWELS=new Set(['a','e','i','o','u','ă','â','î']);
+
+function destinyNum(name){ const s=name.toLowerCase().replace(/\s/g,'').split('').reduce((a,c)=>a+letterVal(c),0); return reduce(s); }
+function soulNum(name){ const s=name.toLowerCase().replace(/\s/g,'').split('').filter(c=>VOWELS.has(c)).reduce((a,c)=>a+letterVal(c),0); return reduce(s||9); }
+function personalityNum(name){ const s=name.toLowerCase().replace(/\s/g,'').split('').filter(c=>!VOWELS.has(c)&&letterVal(c)>0).reduce((a,c)=>a+letterVal(c),0); return reduce(s||1); }
+function birthNum(d){ return reduce(parseInt(d)); }
+function lifePathNum(d,m,y){ return reduce(parseInt(d)+parseInt(m)+parseInt(y)); }
+function personalYear(d,m,yr){ return reduce(parseInt(d)+parseInt(m)+parseInt(yr)); }
+function missionNum(d,m,y,name){ return reduce(lifePathNum(d,m,y)+destinyNum(name)); }
+
+// ─── PYTHAGOREAN MATRIX ───────────────────────────────────────────
+// Positions: [7,8,9 / 4,5,6 / 1,2,3] (magic square layout)
+const MATRIX_LAYOUT = [7,8,9,4,5,6,1,2,3];
+const MATRIX_MEANINGS = {
+  1:{ pos:'Voința & Caracter', desc:'Puterea voinței, caracterul, determinarea' },
+  2:{ pos:'Energia & Sănătate', desc:'Vitalitate fizică, energie, sănătate' },
+  3:{ pos:'Cognitivul & Intuiția', desc:'Capacitate cognitivă, intuiție, memorie' },
+  4:{ pos:'Familia & Valorile', desc:'Valori, familie, stabilitate emoțională' },
+  5:{ pos:'Logica & Intelectul', desc:'Rațiune, intelect, logică' },
+  6:{ pos:'Munca & Talentul', desc:'Hărnicie, talent, productivitate' },
+  7:{ pos:'Norocul & Spiritul', desc:'Noroc, spiritualitate, conexiunea cu divinul' },
+  8:{ pos:'Datoria & Obligația', desc:'Simțul datoriei, responsabilitate, karma' },
+  9:{ pos:'Mintea & Memoria', desc:'Inteligență, ambiție, mintea superioara' }
+};
+
+function buildMatrix(d, m, y, name) {
+  const digits = [];
+  // din data nașterii
+  (String(d).padStart(2,'0')+String(m).padStart(2,'0')+String(y)).split('').forEach(c=>{ if(c!=='0') digits.push(parseInt(c)); });
+  // din numar destin
+  String(destinyNum(name)).split('').forEach(c=>{ if(c!=='0') digits.push(parseInt(c)); });
+  const counts = {};
+  for(let i=1;i<=9;i++) counts[i]=(digits.filter(x=>x===i)).length;
+  return counts;
+}
+
+function renderMatrix(containerId, counts, colorClass) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = '';
+  MATRIX_LAYOUT.forEach(pos => {
+    const cell = document.createElement('div');
+    cell.className = 'mc';
+    const cnt = counts[pos]||0;
+    const posEl = document.createElement('div'); posEl.className='pos'; posEl.textContent=pos;
+    const valEl = document.createElement('div'); valEl.className='val';
+    if(cnt===0){ cell.classList.add('empty'); valEl.textContent='—'; }
+    else {
+      cell.classList.add(colorClass==='p1'?'has-num':'has-num-2');
+      valEl.textContent = String(pos).repeat(cnt);
+    }
+    cell.appendChild(posEl); cell.appendChild(valEl);
+    el.appendChild(cell);
+  });
+}
+
+function matrixInterpret(counts) {
+  const mi = TRANSLATIONS[LANG].matrixInterp;
+  const lines = [];
+  if(!counts[1]||counts[1]===0) lines.push(mi.no1);
+  if(counts[1]>=3) lines.push(mi.many1);
+  if(!counts[2]||counts[2]===0) lines.push(mi.no2);
+  if(!counts[5]||counts[5]===0) lines.push(mi.no5);
+  if(counts[5]>=3) lines.push(mi.many5);
+  if(!counts[7]||counts[7]===0) lines.push(mi.no7);
+  if(counts[8]>=2) lines.push(mi.many8);
+  if(!counts[4]||counts[4]===0) lines.push(mi.no4);
+  if(lines.length===0) lines.push(mi.ok);
+  return lines.join('<br>');
+}
+
+// ─── VECTORS ──────────────────────────────────────────────────────
+function getVectorNames(){ return TRANSLATIONS[LANG].vectorNames; }
+function getVectorDesc(){ return TRANSLATIONS[LANG].vectorDesc; }
+
+// ─── KARMIC BLOCKS ────────────────────────────────────────────────
+function getNumNames(){ return TRANSLATIONS[LANG].numNames; }
+function getBlocaje(lp1, lp2) {
+  const T = TRANSLATIONS[LANG];
+  const key1 = `${Math.min(lp1,lp2)}-${Math.max(lp1,lp2)}`;
+  if(T.blocaje[key1]) return T.blocaje[key1];
+  const diff = Math.abs(lp1-lp2);
+  if(diff===0) return T.blocajGeneric.same(lp1);
+  if(diff<=2) return T.blocajGeneric.close;
+  if(diff>=5) return T.blocajGeneric.far;
+  return T.blocajGeneric.generic;
+}
+
+// ─── PERSONAL YEAR MEANINGS ───────────────────────────────────────
+function getPyMeanings(){ return TRANSLATIONS[LANG].pyMeanings; }
+const HARMONY_TABLE = {
+  '1-9':'🔥','1-1':'⚡','2-6':'💞','2-2':'🌊','3-3':'🎨','4-4':'🏗️',
+  '5-5':'🌪️','6-6':'🏡','7-7':'🔮','8-8':'💰','9-9':'🌙',
+  '1-5':'🚀','2-4':'🌿','3-9':'✨','4-8':'💎','5-9':'🌍','6-9':'💖',
+  '1-6':'🌟','2-8':'⚖️','3-6':'🎶','4-6':'🏠','7-9':'🕊️','1-3':'🎯',
+};
+function getHarmony(py1, py2) {
+  const k1=`${Math.min(py1,py2)}-${Math.max(py1,py2)}`;
+  return HARMONY_TABLE[k1]||'◉';
+}
+
+// ─── RELATIONSHIP NUMBER ──────────────────────────────────────────
+function getRelMeanings(){ return TRANSLATIONS[LANG].relMeanings; }
+
+// ─── ADVICE ──────────────────────────────────────────────────────
+function getAdvice(lp1, lp2, relNum) {
+  const A = TRANSLATIONS[LANG].advice;
+  const advice = [];
+  if(relNum===1||relNum===8) advice.push(A.power);
+  if(relNum===2||relNum===6) advice.push(A.comm);
+  if(relNum===3||relNum===5) advice.push(A.depth);
+  if(relNum===4||relNum===7) advice.push(A.space);
+  if(relNum===9||relNum===11) advice.push(A.release);
+  const diff = Math.abs(lp1-lp2);
+  if(diff>=4) advice.push(A.diff);
+  if(lp1===lp2) advice.push(A.mirror);
+  advice.push(A.rhythm);
+  advice.push(A.missing);
+  advice.push(A.relnum);
+  return advice;
+}
+
+// ─── SCORE ────────────────────────────────────────────────────────
+function calcScore(lp1, lp2, dest1, dest2, soul1, soul2) {
+  let score = 50;
+  const compatible = [[1,5],[1,9],[2,4],[2,6],[2,8],[3,5],[3,9],[4,8],[6,9],[7,5]];
+  const excellent = [[1,2],[2,6],[3,9],[4,6],[6,9],[1,9]];
+  const challenging = [[1,1],[4,5],[7,8],[8,9],[3,4],[2,5]];
+  const pairs = [[lp1,lp2],[dest1,dest2],[soul1,soul2]];
+  pairs.forEach(([a,b],idx)=>{
+    const w = idx===0?2:1;
+    const k1=`${Math.min(a,b)}-${Math.max(a,b)}`;
+    if(excellent.find(([x,y])=>Math.min(x,y)===Math.min(a,b)&&Math.max(x,y)===Math.max(a,b))) score+=10*w;
+    else if(compatible.find(([x,y])=>Math.min(x,y)===Math.min(a,b)&&Math.max(x,y)===Math.max(a,b))) score+=5*w;
+    else if(challenging.find(([x,y])=>Math.min(x,y)===Math.min(a,b)&&Math.max(x,y)===Math.max(a,b))) score-=5*w;
+    if(a===b) score+=8*w;
+  });
+  return Math.min(Math.max(score,15),98);
+}
+
+function scoreLabel(s) {
+  const sl = TRANSLATIONS[LANG].scoreLabels;
+  if(s>=85) return sl[0];
+  if(s>=70) return sl[1];
+  if(s>=55) return sl[2];
+  if(s>=40) return sl[3];
+  return sl[4];
+}
+
+// ─── MAIN CALCULATE ───────────────────────────────────────────────
+function calculate() {
+  const name1=document.getElementById('n1').value.trim();
+  const name2=document.getElementById('n2').value.trim();
+  const d1=document.getElementById('d1').value, m1=document.getElementById('m1').value, y1=document.getElementById('y1').value;
+  const d2=document.getElementById('d2').value, m2=document.getElementById('m2').value, y2=document.getElementById('y2').value;
+  if(!name1||!name2||!d1||!m1||!y1||!d2||!m2||!y2){
+    alert(TRANSLATIONS[LANG].alertMsg); return;
+  }
+  renderResults(name1,name2,d1,m1,y1,d2,m2,y2);
+}
+
+function renderResults(name1,name2,d1,m1,y1,d2,m2,y2) {
+  const T = TRANSLATIONS[LANG];
+  const NUM_NAMES = T.numNames;
+  const VECTOR_NAMES = T.vectorNames;
+  const VECTOR_DESC = T.vectorDesc;
+  const PY_MEANINGS = T.pyMeanings;
+  const REL_MEANINGS = T.relMeanings;
+
+  const lp1=lifePathNum(d1,m1,y1), lp2=lifePathNum(d2,m2,y2);
+  const dest1=destinyNum(name1), dest2=destinyNum(name2);
+  const soul1=soulNum(name1), soul2=soulNum(name2);
+  const pers1=personalityNum(name1), pers2=personalityNum(name2);
+  const birth1=birthNum(d1), birth2=birthNum(d2);
+  const miss1=missionNum(d1,m1,y1,name1), miss2=missionNum(d2,m2,y2,name2);
+  const relNum=reduce(lp1+lp2);
+
+  const shortName1 = name1.split(' ')[0];
+  const shortName2 = name2.split(' ')[0];
+  document.getElementById('label-p1').textContent=shortName1;
+  document.getElementById('label-p2').textContent=shortName2;
+  document.getElementById('m-label-p1').textContent=shortName1;
+  document.getElementById('m-label-p2').textContent=shortName2;
+
+  // Score
+  const score=calcScore(lp1,lp2,dest1,dest2,soul1,soul2);
+  document.getElementById('score-num').textContent=score+'%';
+  document.getElementById('score-bar').style.width=score+'%';
+  document.getElementById('score-desc').textContent=scoreLabel(score);
+
+  // Numbers
+  const NL = T.numLabels;
+  const numsP1 = [{l:NL[0],v:lp1},{l:NL[1],v:dest1},{l:NL[2],v:soul1},{l:NL[3],v:pers1},{l:NL[4],v:birth1},{l:NL[5],v:miss1}];
+  const numsP2 = [{l:NL[0],v:lp2},{l:NL[1],v:dest2},{l:NL[2],v:soul2},{l:NL[3],v:pers2},{l:NL[4],v:birth2},{l:NL[5],v:miss2}];
+  function renderNums(elId, nums, cls) {
+    const el=document.getElementById(elId); el.innerHTML='';
+    nums.forEach(n=>{ el.innerHTML+=`<div class="ncard ${cls}"><div class="nl">${n.l}</div><div class="nv">${n.v}</div><div class="nn">${NUM_NAMES[n.v]||n.v}</div></div>`; });
+  }
+  renderNums('nums-p1',numsP1,'c1');
+  renderNums('nums-p2',numsP2,'c2');
+
+  // Matrices
+  const mat1=buildMatrix(d1,m1,y1,name1);
+  const mat2=buildMatrix(d2,m2,y2,name2);
+  renderMatrix('matrix-p1',mat1,'p1');
+  renderMatrix('matrix-p2',mat2,'p2');
+  document.getElementById('matrix-p1-desc').innerHTML=matrixInterpret(mat1);
+  document.getElementById('matrix-p2-desc').innerHTML=matrixInterpret(mat2);
+
+  // Relationship number
+  document.getElementById('rel-card').innerHTML=`
+    <span class="ic-icon">💫</span>
+    <div class="ic-title">${T.relNumTitle(relNum, NUM_NAMES[relNum]||relNum)}</div>
+    <div class="ic-text">${REL_MEANINGS[relNum]||REL_MEANINGS[9]}</div>
+  `;
+
+  // Vectors
+  const commonVectors=[];
+  const allNums1=[lp1,dest1,soul1,pers1];
+  const allNums2=[lp2,dest2,soul2,pers2];
+  for(let v=1;v<=9;v++){ if(allNums1.includes(v)&&allNums2.includes(v)) commonVectors.push(v); }
+  [11,22,33].forEach(v=>{ if(allNums1.includes(v)&&allNums2.includes(v)) commonVectors.push(v); });
+
+  let vecHtml=`<span class="ic-icon">🧭</span><div class="ic-title">${T.vecTitle}</div>`;
+  if(commonVectors.length===0){
+    vecHtml+=`<div class="ic-text">${T.vecNone}</div>`;
+  } else {
+    vecHtml+=`<div class="ic-text">${T.vecHave(commonVectors.length, commonVectors.length>1)}</div><div class="vector-grid">`;
+    commonVectors.forEach(v=>{
+      vecHtml+=`<div class="vcard"><div class="vname">Vector ${v}</div><div class="vval">${VECTOR_NAMES[v]||v}</div><div class="vdesc">${VECTOR_DESC[v]||''}</div></div>`;
+    });
+    vecHtml+='</div>';
+  }
+  const missing1=[1,2,3,4,5,6,7,8,9].filter(n=>!Object.entries(mat1).some(([k,v])=>parseInt(k)===n&&v>0));
+  const missing2=[1,2,3,4,5,6,7,8,9].filter(n=>!Object.entries(mat2).some(([k,v])=>parseInt(k)===n&&v>0));
+  const commonMissing=missing1.filter(n=>missing2.includes(n));
+  if(commonMissing.length>0){
+    vecHtml+=`<div class="ic-text" style="margin-top:12px;">${T.vecMissCommon(commonMissing.join(', '))}</div>`;
+  }
+  document.getElementById('vectors-card').innerHTML=vecHtml;
+
+  // Blocaje
+  const blocaj=getBlocaje(lp1,lp2);
+  let blocHtml=`<span class="ic-icon">⚡</span><div class="ic-title">${T.blocTitle}</div><div class="ic-text">`;
+  blocHtml+=`<strong>${NL[0]} ${lp1} (${shortName1}) + ${lp2} (${shortName2}):</strong><br>${blocaj}<br><br>`;
+  if(soul1!==soul2){
+    const soulDiff=Math.abs(soul1-soul2);
+    if(soulDiff>=4) blocHtml+=T.soulBlock(`${soul1} vs ${soul2}`, shortName1, VECTOR_NAMES[soul1]||soul1, shortName2, VECTOR_NAMES[soul2]||soul2);
+    else blocHtml+=T.soulOk(`${soul1} și ${soul2}`);
+  } else {
+    blocHtml+=T.soulTwin(soul1);
+  }
+  const karmicDebt=[13,14,16,19];
+  const rawLP1=parseInt(d1)+parseInt(m1)+parseInt(y1);
+  const rawLP2=parseInt(d2)+parseInt(m2)+parseInt(y2);
+  let hasDebt=false;
+  if(karmicDebt.some(k=>String(rawLP1).includes(String(k))||rawLP1===k)){
+    blocHtml+=T.debtP1(shortName1); hasDebt=true;
+  }
+  if(karmicDebt.some(k=>String(rawLP2).includes(String(k))||rawLP2===k)){
+    blocHtml+=T.debtP2(shortName2); hasDebt=true;
+  }
+  if(!hasDebt) blocHtml+=T.noDebt;
+  blocHtml+='</div>';
+  document.getElementById('blocaje-card').innerHTML=blocHtml;
+
+  // Personal years
+  const currentYear=new Date().getFullYear();
+  document.getElementById('sec-ani').textContent = T.pyTitle(currentYear, currentYear+6);
+  let pyHtml=`<span class="ic-icon">📅</span><div class="ic-title">${T.pyTitle(currentYear, currentYear+6)}</div>`;
+  pyHtml+=`<div class="ic-text" style="margin-bottom:10px;">${T.pyIntro}</div>`;
+  pyHtml+=`<div style="overflow-x:auto;"><table class="py-table"><thead><tr><th>${T.pyColYear}</th><th style="color:var(--p1)">${shortName1}</th><th style="color:var(--p2)">${shortName2}</th><th>${T.pyColHarmony}</th><th>${T.pyColCommon}</th></tr></thead><tbody>`;
+  for(let yr=currentYear;yr<=currentYear+6;yr++){
+    const py1=personalYear(d1,m1,yr), py2=personalYear(d2,m2,yr);
+    const harmony=getHarmony(py1,py2);
+    const isCurrent=yr===currentYear;
+    pyHtml+=`<tr${isCurrent?' class="highlight-yr"':''}>
+      <td class="yr">${yr}${isCurrent?' ◀':''}</td>
+      <td><span class="pyn c1">${py1}</span><br><small style="color:var(--text3);font-size:11px;">${PY_MEANINGS[py1]||''}</small></td>
+      <td><span class="pyn c2">${py2}</span><br><small style="color:var(--text3);font-size:11px;">${PY_MEANINGS[py2]||''}</small></td>
+      <td class="harmony">${harmony}</td>
+      <td style="font-size:12px;color:var(--text2);">${py1===py2?T.pySynced:'—'}</td>
+    </tr>`;
+  }
+  pyHtml+='</tbody></table></div>';
+  const bestYears=[];
+  for(let yr=currentYear;yr<=currentYear+6;yr++){
+    const py1=personalYear(d1,m1,yr), py2=personalYear(d2,m2,yr);
+    if(py1===py2||(py1===6&&py2===2)||(py1===2&&py2===6)||(py1===3&&py2===9)||(py1===9&&py2===3)) bestYears.push(yr);
+  }
+  if(bestYears.length>0) pyHtml+=`<div class="ic-text" style="margin-top:12px;">${T.pyBest(bestYears.join(', '))}</div>`;
+  document.getElementById('ani-card').innerHTML=pyHtml;
+
+  // Sfaturi
+  const adviceList=getAdvice(lp1,lp2,relNum);
+  let sfHtml=`<span class="ic-icon">🌿</span><div class="ic-title">${T.sfatTitle}</div><div class="advice-list">`;
+  adviceList.forEach(a=>{ sfHtml+=`<div class="advice-item"><div class="ai-icon">${a.icon}</div><div class="ai-text">${a.text}</div></div>`; });
+  sfHtml+='</div>';
+  document.getElementById('sfaturi-card').innerHTML=sfHtml;
+
+  document.getElementById('results').style.display='block';
+  document.getElementById('results').scrollIntoView({behavior:'smooth'});
+}
+</script>
+</body>
+</html>
